@@ -9,16 +9,28 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".HomeActivity"
-            android:label="Home"></activity>
-        <activity android:name=".SplashActivity"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
+        <activity android:name=".CoroutinesSplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".TimerSplashActivity">
+        </activity>
+        <activity android:name=".CommonSplashActivity"></activity>
+        <activity
+            android:name=".SplashLogicActivity"
+            android:theme="@style/AppTheme.Splash" />
+        <activity
+            android:name=".LoginActivity"
+            android:label="Login" />
+        <activity
+            android:name=".SplashThemeActivity"
+            android:theme="@style/AppTheme.Splash" />
+        <activity
+            android:name=".HomeActivity"
+            android:label="Home" />
     </application>
 
 </manifest>
