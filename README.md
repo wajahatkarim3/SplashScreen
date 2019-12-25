@@ -2,8 +2,11 @@
 A demo project showcasing different methods to create splash screen in Android and discusses the details in the companion Medium article at https://android.jlelse.eu/revisited-a-guide-on-splash-screen-in-android-in-2020-bbcd4bb1ce42
 
 The approaches discussed:
+
 🎨 Using Activity Theme
+
 ⏰ Using Handler / Runnable / Timer
+
 🎯 Using Kotlin Coroutines
 
 
