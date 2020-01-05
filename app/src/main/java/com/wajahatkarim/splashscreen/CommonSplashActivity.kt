@@ -7,14 +7,22 @@ import android.os.Handler
 import androidx.core.os.postDelayed
 
 class CommonSplashActivity : AppCompatActivity() {
+
+    var handler = Handler()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_common_splash)
 
-        Handler().postDelayed(3000) {
+        handler.postDelayed(3000) {
             var intent = Intent(this@CommonSplashActivity, LoginActivity::class.java)
             startActivity(intent)
             finish()
         }
+    }
+
+    override fun onDestroy() {
+        handler.removeCallbacksAndMessages(null)
+        super.onDestroy()
     }
 }
