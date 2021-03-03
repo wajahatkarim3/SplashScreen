@@ -7,23 +7,34 @@ import kotlinx.coroutines.*
 
 class CoroutinesSplashActivity : AppCompatActivity() {
 
-    val activityScope = CoroutineScope(Dispatchers.Main)
+    private lateinit var activityScope: Job
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_coroutines_splash)
+        activityScope = splashState()
+    }
 
-        activityScope.launch {
-            delay(3000)
-
-            var intent = Intent(this@CoroutinesSplashActivity, HomeActivity::class.java)
-            startActivity(intent)
-            finish()
-        }
+    override fun onResume() {
+        super.onResume()
+        if (activityScope.isActive.not())
+            splashState()
     }
 
     override fun onPause() {
-        activityScope.cancel()
         super.onPause()
+        activityScope.cancel()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        activityScope.cancel()
+    }
+
+    private fun splashState() = CoroutineScope(Dispatchers.Main).launch {
+        delay(3000)
+        val intent = Intent(this@CoroutinesSplashActivity, HomeActivity::class.java)
+        startActivity(intent)
+        finish()
     }
 }
